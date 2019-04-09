@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "ConWorkerRole";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Proceso con worker Role</h2>
+
+<p>Este proceso ejecutará la simulación del proceso para genear un reporte que tarda 20 segundos para el usuario, la generación será delegada a un proceso en la nube tipo Worker Role por medio de una cola.</p>
+<p>una vez encolada la generación del reporte, se informará al usuario que su trabajo será procesado en breve y que se informará una vez sea finalizado.</p>
+<p>En resumen, el usuario podrá seguir haciendo uso de la aplicaicón, y no se verá afectada la productividad del usuario ni el rendimiento del servidor.</p>
+
+@if (!string.IsNullOrEmpty(ViewBag.Mensaje))
+{
+    <div class="alert alert-success">
+        <strong>Perfecto!</strong> @ViewBag.Mensaje
+    </div>
+
+
+}
+
+@using (Html.BeginForm("ConWorkerRole", "Home", FormMethod.Post, new { id = 1 }))
+{
+
+    <input type="submit" value="Generar reporte" class="btn btn-info" />
+
+}

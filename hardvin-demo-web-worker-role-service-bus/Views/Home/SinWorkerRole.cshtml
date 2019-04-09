@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "SinWorkerRole";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Proceso sin worker Role</h2>
+<p>Este proceso ejecutará la simulación del proceso para genear un reporte que tarda 20 segundos para el usuario, la generación se realiza en línea, por lo que el usuario quedará con su pantalla congelada 20 segundos para que el sistema arroje un resultado.</p>
+<p>en resumen, se verá afectada la experiencia de usuario y la productividad ya que el usuario no podrá ver resultados ni realizar otros trabajos en el sistema hasta obtener una respuesta.</p>
+
+@using (Html.BeginForm("SinWorkerRole", "Home", FormMethod.Post, new { id = 1 }))
+{
+
+    <input type="submit" value="Generar reporte" class="btn btn-info" />
+
+}
